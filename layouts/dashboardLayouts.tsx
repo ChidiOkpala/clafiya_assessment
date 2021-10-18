@@ -17,10 +17,12 @@ export const DashboardLayout: FC = ({ children }) => {
             <div className="mobile-menu-bar">
               <MenuBar />
             </div>
-            <div
-              className="close-icon"
-              onClick={() => setShowMobileMenu(false)}
-            >&#10005;</div>
+            <div className="close-icon-wrapper">
+              <div
+                className="close-icon"
+                onClick={() => setShowMobileMenu(false)}
+              >&#10005;</div>
+            </div>
           </div>
         )}
         <main>
@@ -68,7 +70,7 @@ export const DashboardLayout: FC = ({ children }) => {
           }
 
           .layout-wrapper .mobile-menu-bar {
-            width: 85%;
+            width: 90%;
             box-shadow: 4px 0px 16px rgba(16, 30, 115, 0.08);
             background-color: #ffffff;
           }
@@ -77,21 +79,29 @@ export const DashboardLayout: FC = ({ children }) => {
             display: none;
           }
 
+          .mobile-menu-wrapper .close-icon-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            height: 100vh;
+            width: 10%;
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+
           .mobile-menu-wrapper .close-icon {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             background-color: #0A459F;
             color: #ffffff;
             border-radius: 8px;
-            margin: 24px;
+            margin: 24px 10px;
           }
 
           .layout-wrapper > main {
             width: 100%;
-            padding: 24px;
+            padding: 10px;
           }
         }
       `}</style>

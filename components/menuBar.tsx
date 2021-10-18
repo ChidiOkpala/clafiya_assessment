@@ -55,6 +55,12 @@ export const MenuBar: FC = () => {
         .menu-bar-wrapper hr {
           border: 1px solid #E8E8E8;
         }
+
+        @media screen and (max-width: 750px) {
+          .menu-bar-wrapper .image-wrapper {
+            margin-left: 10px;
+          }
+        }
       `}</style>
     </div>
   )

@@ -60,7 +60,7 @@ export const DashboardHeader: FC<DashboardHeaderProps> = ({
           display: flex;
           justify-content: space-between;
           width: 100%;
-          padding: 24px;
+          padding: 24px 10px;
         }
 
         .main-header-wrapper .desktop-header {

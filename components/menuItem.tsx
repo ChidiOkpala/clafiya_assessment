@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 
 import { MenuIconProps } from './svg/model'
+import { MenuText } from './menuText'
 
 interface MenuItemProps {
   text: string
@@ -24,7 +25,9 @@ export const MenuItem: FC<MenuItemProps> = ({
       onClick={() => onClick && onClick()}
     >
       {<Icon isActive={isActive} />}
-      <div className="menu-text">{text}</div>
+      <div className="menu-text">
+        <MenuText text={text} isActive={isActive} />
+      </div>
 
       <style jsx>{`
         .menu-item-wrapper {
@@ -32,18 +35,7 @@ export const MenuItem: FC<MenuItemProps> = ({
           align-items: center;
           padding-left: 25px;
           height: 48px;
-          font-family: 'Lato', sans-serif;
-          font-weight: bold;
-          font-size: 14px;
-          line-height: 20px;
-          letter-spacing: 0.1px;
-          color: #52575C;
           cursor: pointer;
-        }
-
-        .active-menu,
-        .menu-item-wrapper:hover {
-          color: #0A459F;
         }
 
         .menu-item-wrapper .menu-text {
