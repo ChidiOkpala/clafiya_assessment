@@ -1,5 +1,6 @@
 import React, { FC} from 'react'
 import { Line } from 'react-chartjs-2'
+import { addCommasToNum } from '../../helpers/constant'
 
 export interface ChartProps {
   verticalLabels: Array<string | number>
@@ -7,6 +8,7 @@ export interface ChartProps {
   lineColor: string
   pointColor: string
   stepSize: number
+  signToAppend?: string
 }
 
 export const Chart: FC<ChartProps> = ({
@@ -15,6 +17,7 @@ export const Chart: FC<ChartProps> = ({
   lineColor,
   pointColor,
   stepSize,
+  signToAppend,
 }) => {
   const data = {
     labels: verticalLabels,
@@ -46,7 +49,11 @@ export const Chart: FC<ChartProps> = ({
           borderColor: '#ffffff',
           borderDash: [8, 4]
         },
-        ticks: { stepSize }
+        ticks: {
+          stepSize,
+          callback: (value: number): string =>
+            `${signToAppend || ''}${addCommasToNum(value)}`
+        }
       },
       x: {
         grid: {

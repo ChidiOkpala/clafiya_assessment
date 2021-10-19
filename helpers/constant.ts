@@ -72,6 +72,7 @@ export const chartData: SummaryChartProps[] = [
       lineColor: "#336CFB",
       pointColor: "#A9C1FD",
       stepSize: 20000,
+      signToAppend: '$'
     }
   },
   {
@@ -147,4 +148,12 @@ export const tableData: TableCardProps = {
 export const helpMenuItem: MenuItemProps = {
   text: 'help',
   Icon: HelpIcon
+}
+
+export const addCommasToNum = (num: number): string => {
+  if (num) {
+    return new Intl.NumberFormat().format(num)
+  }
+
+  return '0'
 }
