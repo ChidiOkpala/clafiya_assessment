@@ -1,35 +1,33 @@
 import { FC, useState } from 'react'
 
-import { MenuBar } from '../components/menuBar'
-import { DashboardHeader } from '../components/dashboardHeader'
+import { MenuBar } from '../components/organisms/menuBar'
+import { DashboardHeader } from '../components/organisms/dashboardHeader'
 
 export const DashboardLayout: FC = ({ children }) => {
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
 
   return (
-    <div>
-      <div className="layout-wrapper">
-        <aside>
-          <MenuBar />
-        </aside>
-        {showMobileMenu && (
-          <div className="mobile-menu-wrapper">
-            <div className="mobile-menu-bar">
-              <MenuBar />
-            </div>
-            <div className="close-icon-wrapper">
-              <div
-                className="close-icon"
-                onClick={() => setShowMobileMenu(false)}
-              >&#10005;</div>
-            </div>
+    <div className="layout-wrapper">
+      <aside>
+        <MenuBar />
+      </aside>
+      {showMobileMenu && (
+        <div className="mobile-menu-wrapper">
+          <div className="mobile-menu-bar">
+            <MenuBar />
           </div>
-        )}
-        <main>
-          <DashboardHeader onMobileMenuClick={() => setShowMobileMenu(true)} />
-          {children}
-        </main>
-      </div>
+          <div className="close-icon-wrapper">
+            <div
+              className="close-icon"
+              onClick={() => setShowMobileMenu(false)}
+            >&#10005;</div>
+          </div>
+        </div>
+      )}
+      <main>
+        <DashboardHeader onMobileMenuClick={() => setShowMobileMenu(true)} />
+        {children}
+      </main>
 
       <style jsx>{`
         .layout-wrapper {

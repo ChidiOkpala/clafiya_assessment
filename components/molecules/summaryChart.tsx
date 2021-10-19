@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-import { Card } from './card'
-import { Chart, ChartProps } from './chart'
+import { Card } from '../atoms/card'
+import { Chart, ChartProps } from '../atoms/chart'
 
-interface SummaryChartProps {
+export interface SummaryChartProps {
   chart: ChartProps
   summaryValue: string
   summaryTitle: string
@@ -47,6 +47,13 @@ export const SummaryChart: FC<SummaryChartProps> = ({
           line-height: 16px;
           letter-spacing: 0.1px;
           color: #A0A4A8;
+        }
+
+        @media screen and (max-width: 800px) {
+          .summary-wrapper {
+            flex-direction: column;
+            align-items: flex-start;
+          }
         }
       `}</style>
     </Card>

@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import Link from 'next/link'
 
-import { MenuIconProps } from './svg/model'
-import { MenuText } from './menuText'
+import { MenuIconProps } from '../atoms/svg/model'
+import { MenuText } from '../atoms/menuText'
 
-interface MenuItemProps {
+export interface MenuItemProps {
   text: string
   Icon: FC<MenuIconProps>
   isActive?: boolean

@@ -1,5 +1,5 @@
 import { FC, useRef } from 'react'
-import { SearchIcon } from './svg'
+import { SearchIcon } from '../atoms/svg'
 
 interface SearchInputProps {
   onSubmit: (value: string) => void
@@ -8,10 +8,18 @@ interface SearchInputProps {
 export const SearchInput: FC<SearchInputProps> = ({ onSubmit }) => {
   const inputRef = useRef<HTMLInputElement>()
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    if (inputRef.current.value) {
+      onSubmit(inputRef.current.value)
+    }
+  }
+
   return (
     <form
       className="search-form-wrapper"
-      onSubmit={() => onSubmit(inputRef.current.value)}
+      onSubmit={handleSubmit}
     >
       <div className="search-icon-wrapper">
         <SearchIcon />
@@ -49,9 +57,15 @@ export const SearchInput: FC<SearchInputProps> = ({ onSubmit }) => {
           background-color: #ffffff;
         }
 
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 550px) {
           .search-input {
-            width: 250px;
+            width: 200px;
+          }
+        }
+
+        @media screen and (max-width: 390px) {
+          .search-input {
+            width: 150px;
           }
         }
       `}</style>

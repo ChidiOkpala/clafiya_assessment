@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import Image from 'next/image'
 
-import { Card } from './card'
-import { MenuText } from './menuText'
+import { Card } from '../atoms/card'
+import { MenuText } from '../atoms/menuText'
 
-interface SummaryCardProps {
+export interface SummaryCardProps {
   image: string
   title: string
   value: string
