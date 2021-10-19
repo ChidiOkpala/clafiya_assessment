@@ -39,8 +39,11 @@ export const DashboardLayout: FC = ({ children }) => {
         }
 
         .layout-wrapper > aside {
+          position: fixed;
+          left: 0;
+          top: 0;
           width: 17.78%;
-          min-width: 200px;
+          min-width: 165px;
           height: 100vh;
           background-color: #ffffff;
           box-shadow: 4px 0px 16px rgba(16, 30, 115, 0.08);
@@ -55,6 +58,7 @@ export const DashboardLayout: FC = ({ children }) => {
           width: 82.22%;
           background-color: #F6F8FB;
           padding: 24px 36px;
+          margin-left: 17.78%;
         }
 
         @media screen and (max-width: 750px) {
@@ -70,7 +74,7 @@ export const DashboardLayout: FC = ({ children }) => {
           }
 
           .layout-wrapper .mobile-menu-bar {
-            width: 90%;
+            width: 85%;
             box-shadow: 4px 0px 16px rgba(16, 30, 115, 0.08);
             background-color: #ffffff;
           }
@@ -83,7 +87,8 @@ export const DashboardLayout: FC = ({ children }) => {
             display: flex;
             justify-content: flex-end;
             height: 100vh;
-            width: 10%;
+            width: 15%;
+            min-width: 70px;
             background-color: rgba(0, 0, 0, 0.2);
           }
 
@@ -92,16 +97,18 @@ export const DashboardLayout: FC = ({ children }) => {
             justify-content: center;
             align-items: center;
             width: 32px;
+            min-width: 32px;
             height: 32px;
             background-color: #0A459F;
             color: #ffffff;
             border-radius: 8px;
-            margin: 24px 10px;
+            margin: 24px 20px 0 0;
           }
 
           .layout-wrapper > main {
             width: 100%;
             padding: 10px;
+            margin-left: 0;
           }
         }
       `}</style>

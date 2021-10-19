@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import { DashboardLayout } from '../layouts/dashboardLayouts'
 import { SummaryCard } from '../components/summaryCard'
+import { SummaryChart } from '../components/summaryChart'
 
 const Dashboard: FC = () => (
   <div>
@@ -10,6 +11,13 @@ const Dashboard: FC = () => (
         {summaryList.map(summary => (
           <div className="summary-card-wrapper" key={summary.title}>
             <SummaryCard {...summary} />
+          </div>
+        ))}
+      </div>
+      <div className="chart-wrapper">
+        {chartData.map(chart => (
+          <div key={chart.summaryTitle} className="chart-card-wrapper">
+            <SummaryChart {...chart} />
           </div>
         ))}
       </div>
@@ -29,6 +37,18 @@ const Dashboard: FC = () => (
         margin-bottom: 20px;
       }
 
+      .chart-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .chart-wrapper .chart-card-wrapper {
+        width: 48%;
+        margin-bottom: 30px;
+      }
+
       @media screen and (max-width: 750px) {
         .summary-wrapper .summary-card-wrapper {
           width: 48%;
@@ -39,6 +59,15 @@ const Dashboard: FC = () => (
         .summary-wrapper .summary-card-wrapper {
           width: 100%;
           margin-bottom: 12px;
+        }
+
+        .chart-wrapper {
+          flex-direction: column;
+        }
+
+        .chart-wrapper .chart-card-wrapper {
+          width: 100%;
+          margin-bottom: 15px;
         }
       }
     `}</style>
@@ -81,5 +110,28 @@ const summaryList = [
     title: 'Clafiya’s Earnings',
     value: '$ 112,174',
     image: '/assets/earning-summary.png'
+  }
+]
+
+const chartData = [
+  {
+    summaryValue: '$ 112,174',
+    summaryTitle: 'Income in current month',
+    chart: {
+      verticalLabels: ['', '1 June', '8 July', '16 Augt', '24 Sept', '15 Oct'],
+      horizontalData: [58000, 48000, 105000, 33000, 61000, 42000],
+      lineColor: "#336CFB",
+      pointColor: "#A9C1FD",
+    }
+  },
+  {
+    summaryValue: '5,210',
+    summaryTitle: 'Total Number of Appointment',
+    chart: {
+      verticalLabels: ['', '24 April', '26 May', '27 June', '28 July', '29 Aug', '30 Sept', '15 Oct'],
+      horizontalData: [2200, 3400, 1700, 2800, 2050, 4800, 850, 2650],
+      lineColor: "#FAC032",
+      pointColor: "#FCDF98",
+    }
   }
 ]

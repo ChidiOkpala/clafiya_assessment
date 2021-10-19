@@ -48,6 +48,12 @@ export const SearchInput: FC<SearchInputProps> = ({ onSubmit }) => {
           padding-left: 42px;
           background-color: #ffffff;
         }
+
+        @media screen and (max-width: 500px) {
+          .search-input {
+            width: 250px;
+          }
+        }
       `}</style>
     </form>
   )

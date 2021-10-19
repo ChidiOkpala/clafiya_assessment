@@ -58,7 +58,7 @@ export const MenuBar: FC = () => {
 
         @media screen and (max-width: 750px) {
           .menu-bar-wrapper .image-wrapper {
-            margin-left: 10px;
+            margin-left: 24px;
           }
         }
       `}</style>
