@@ -122,6 +122,7 @@ const chartData = [
       horizontalData: [58000, 48000, 105000, 33000, 61000, 42000],
       lineColor: "#336CFB",
       pointColor: "#A9C1FD",
+      stepSize: 20000,
     }
   },
   {
@@ -132,6 +133,7 @@ const chartData = [
       horizontalData: [2200, 3400, 1700, 2800, 2050, 4800, 850, 2650],
       lineColor: "#FAC032",
       pointColor: "#FCDF98",
+      stepSize: 1000
     }
   }
 ]

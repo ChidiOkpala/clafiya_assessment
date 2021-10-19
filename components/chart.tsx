@@ -6,6 +6,7 @@ export interface ChartProps {
   horizontalData: number[]
   lineColor: string
   pointColor: string
+  stepSize: number
 }
 
 export const Chart: FC<ChartProps> = ({
@@ -13,6 +14,7 @@ export const Chart: FC<ChartProps> = ({
   horizontalData,
   lineColor,
   pointColor,
+  stepSize,
 }) => {
   const data = {
     labels: verticalLabels,
@@ -38,11 +40,13 @@ export const Chart: FC<ChartProps> = ({
     },
     scales: {
       y: {
+        stacked: true,
         beginAtZero: true,
         grid: {
           borderColor: '#ffffff',
           borderDash: [8, 4]
-        }
+        },
+        ticks: { stepSize }
       },
       x: {
         grid: {
