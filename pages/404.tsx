@@ -20,7 +20,6 @@ const FallBack: FC = () => (
       }
     `}</style>
   </DashboardLayout>
-
 )
 
 export default FallBack

@@ -35,6 +35,13 @@ export const Chart: FC<ChartProps> = ({
     ]
   }
 
+  const tickFontStyle = {
+    family: 'Lato',
+    weight: 'bold',
+    lineHeight: '12px',
+    size: 10
+  }
+
   const options = {
     plugins: {
       legend: {
@@ -51,6 +58,8 @@ export const Chart: FC<ChartProps> = ({
         },
         ticks: {
           stepSize,
+          color: '#A0A4A8',
+          font: tickFontStyle,
           callback: (value: number): string =>
             `${signToAppend || ''}${addCommasToNum(value)}`
         }
@@ -58,6 +67,10 @@ export const Chart: FC<ChartProps> = ({
       x: {
         grid: {
           color: '#ffffff'
+        },
+        ticks: {
+          color: '#A0A4A8',
+          font: tickFontStyle,
         }
       },
       'right-y-axis': {
