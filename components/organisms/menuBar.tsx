@@ -1,12 +1,19 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { NextRouter, useRouter } from 'next/router'
 
 import { MenuItem } from '../molecules/menuItem'
 import { helpMenuItem, menuList } from '../../helpers/constant'
 
 export const MenuBar: FC = () => {
-  const [activeMenu, setActiveMenu] = useState<string>(menuList[0].text)
+  const router: NextRouter = useRouter()
+  const routePath: string = router.asPath.toLowerCase()
+    .replace('/', '')
+    .replace('%20', ' ')
+  
+  const getActiveMenu = (text: string): boolean =>
+    routePath === text.toLowerCase()
 
   return (
     <div className="menu-bar-wrapper">
@@ -20,13 +27,11 @@ export const MenuBar: FC = () => {
           />
         </div>
       </Link>
-      {menuList.map(({Icon, text}) => (
+      {menuList.map(item => (
         <MenuItem
-          Icon={Icon}
-          text={text}
-          key={text}
-          isActive={activeMenu === text}
-          onClick={() => setActiveMenu(text)}
+          {...item}
+          key={item.text}
+          isActive={getActiveMenu(item.text)}
         />
       ))}
       <hr />

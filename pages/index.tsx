@@ -12,7 +12,7 @@ const Home = () => {
     <div className="home-wrapper">
       <span>Redirecting to dashboard page...</span>
 
-      <style>{`
+      <style jsx>{`
         .home-wrapper {
           display: flex;
           justify-content: center;
@@ -21,6 +21,19 @@ const Home = () => {
           height: 100vh;
         }
       `}</style>
+
+    <style jsx global>{`
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: 'Lato', san-seriff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    `}</style>
     </div>
   )
 }
